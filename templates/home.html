@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mallareddy Engineering College</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .header {
+      background-color: #010a35;
+      color: #ffffff;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .header h1 {
+      margin: 10px 0;
+      font-size: 36px;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      border: 5px solid #ffffff;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .institution-info {
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+
+    .institution-buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .institution-buttons a {
+      padding: 12px 30px;
+      background-color: #ffffff;
+      color: #010a35;
+      border: 2px solid #010a35;
+      text-decoration: none;
+      border-radius: 25px;
+      margin: 10px;
+      font-size: 16px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .institution-buttons a:hover {
+      background-color: #001d60;
+      color: #ffffff;
+    }
+
+    .divisions {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 30px 20px;
+    }
+
+    .division {
+      width: calc(33.33% - 20px);
+      margin: 10px;
+      padding: 20px;
+      text-align: center;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .division:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .division a {
+      display: block;
+      margin: 10px 0;
+      padding: 12px 30px;
+      background-color: #010a35;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .division a:hover {
+      background-color: #001d60;
+    }
+
+    .division p {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: #333333;
+    }
+
+    @media screen and (max-width: 768px) {
+      .division {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .division {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+      </div>
+      <h1>MALLAREDDY ENGINEERING COLLEGE</h1>
+      <div class="institution-info">
+        <h2>MAIN CAMPUS, AUTONOMOUS INSTITUTION</h2>
+        <div class="institution-buttons">
+          <a href="https://www.mrec.ac.in/">Home</a>
+          <a href="https://mrecacademics.com/">Academic login</a>
+        </div>
+      </div>
+    </div>
+    <div class="divisions">
+      <div class="division">
+        <p>WELCOME TO MREC NAVIGATION & CLASS MANAGEMENT</p>
+      </div>
+      <div class="division">
+        <a href="http://127.0.0.1:5000">Student</a>
+        <a href="demo.html">Visitor</a>
+        <a href="http://127.0.0.1:5000">Faculty</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

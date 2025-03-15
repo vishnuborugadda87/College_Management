@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Campus Map - Mallareddy Engineering College</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative; /* Required for tooltip positioning */
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #01346d;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            background-color: rgba(51, 51, 51, 0.9);
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            z-index: 1000;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-10px); /* Initial position for animation */
+            opacity: 0;
+        }
+
+        map area {
+            cursor: pointer;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Mallareddy Engineering College - Interactive Campus Map</h1>
+
+        <img src="map.png" usemap="#image-map" alt="Campus Map">
+        
+        <map name="image-map">
+            <area target="_blank" alt="First Year block" title="First Year block" href="none" coords="95,555,263,667" shape="rect">
+        <area target="_blank" alt="Library" title="Library" href="none" coords="294,555,356,688" shape="rect">
+        <area target="_blank" alt="EEE/ECE block" title="EEE/ECE block" href="none" coords="408,555,571,685" shape="rect">
+        <area target="_blank" alt="MBA" title="MBA" href="none" coords="597,555,603,664" shape="rect">
+        <area target="_blank" alt="Mechanical block" title="Mechanical block" href="none" coords="630,555,796,679" shape="rect">
+        <area target="_blank" alt="CSE block" title="CSE block" href="none" coords="823,555,857,669" shape="rect">
+        <area target="_blank" alt="Civil/IT block" title="Civil/IT block" href="none" coords="754,405,748,545" shape="rect">
+        <area target="_blank" alt="Pharmacy block" title="Pharmacy block" href="none" coords="877,555,1007,665" shape="rect">
+        <area target="_blank" alt="Girls hostel" title="Girls hostel" href="none" coords="1051,555,1236,668" shape="rect">
+        <area target="_blank" alt="Boys hostel" title="Boys hostel" href="none" coords="1241,555,1293,640" shape="rect">
+        <area target="_blank" alt="MREM college" title="MREM college" href="none" coords="975,469,1021,537" shape="rect">
+        <area target="_blank" alt="Foot ball ground" title="Foot ball ground" href="none" coords="429,290,569,487" shape="rect">
+        <area target="_blank" alt="Canteen" title="Canteen" href="none" coords="337,254,383,360" shape="rect">
+        <area target="_blank" alt="Auditorium" title="Auditorium" href="none" coords="319,375,383,558" shape="rect">
+        <area target="_blank" alt="Cricket ground" title="Cricket ground" href="none" coords="855,273,149" shape="circle">
+        <area target="_blank" alt="New Block" title="New Block" href="none" coords="942,454,997,389" shape="rect">
+        <area target="_blank" alt="BEEE labs" title="BEEE labs" href="none" coords="517,57,550,257" shape="rect">
+
+        </map>
+
+        <div class="tooltip" id="tooltip"></div>
+    </div>
+
+    <footer>
+        &copy; 2024 Mallareddy Engineering College. All rights reserved.
+    </footer>
+
+    <script>
+        function showTooltip(event, text) {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.innerHTML = text;
+            tooltip.style.display = 'block';
+            tooltip.style.left = ${event.pageX + 10}px ;
+            tooltip.style.top = ${event.pageY - 30}px ;
+            tooltip.style.opacity = '1'; 
+            tooltip.style.transform = 'translateY(0)'; 
+        }
+
+        function hideTooltip() {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.style.opacity = '0';
+            tooltip.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                tooltip.style.display = 'none';
+            }, 300);
+        }
+    </script>
+
+</body>
+</html>

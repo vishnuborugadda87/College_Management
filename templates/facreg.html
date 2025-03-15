@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      margin: 50px auto;
+      background-image: linear-gradient(to bottom, #f7f7f7, #e7e7e7);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      background-color: #446688;
+      padding: 10px;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #33cc33;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #22aa22;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Register</h1>
+    <form id="registration-form" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+      <label for="id">ID:</label>
+      <input type="text" id="id" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" required>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" required>
+      <input type="submit" value="Register">
+    </form>
+  </div>
+  <script>
+    document.getElementById("registration-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      var name = document.getElementById("name").value;
+      var id = document.getElementById("id").value;
+      var email = document.getElementById("email").value;
+      var subject = document.getElementById("subject").value;
+      var phone = document.getElementById("phone").value;
+
+      // Create an object to send to the server
+      var data = {
+        name: name,
+        id: id,
+        email: email,
+        subject: subject,
+        phone: phone
+      };
+
+      // Send data to the server
+      fetch("/saveData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Registration successful:", data);
+        // You can do something here after successful submission, like displaying a success message
+      })
+      .catch(error => {
+        console.error("Something went wrong, Try again", error);
+        // Handle errors here
+      });
+    });
+  </script>
+</body>
+</html>
